@@ -52,6 +52,11 @@ const screen = {
                                             <h2>Repositórios</h2>
                                             <ul>${repositoriesItems}</ul>
                                             </div>`;
+    } else if (user.repositories.length === 0) {
+      this.userProfile.innerHTML += `<div class="repositories section">
+                                    <h2>Repositórios</h2>
+                                    <p class="others-type">Usuário não possui repositórios 👎🏻</p>
+                                    </div>`;
     }
   },
   renderNotFound() {
@@ -64,14 +69,19 @@ const screen = {
       if (event.type === "PushEvent") {
         eventsItems += `
                 <li>
-                    <p class="event-name">${event.repo.name}</p>
-                    <p>${event.payload.commits[0].message}</p>
+                    <div class="event-box">
+                      <p class="event-name">${event.repo.name} - </p>
+                      <p class="event-msg"> ${event.payload.commits[0].message}</p>
+                    </div>
                 </li>`;
       } else if (event.type === "CreateEvent") {
         eventsItems += `
                 <li>
-                <p class="event-name">${event.repo.name}</p>
-                <p>Referência: ${event.payload.ref_type}</p>`;
+                    <div class="event-box">
+                      <p class="event-name">${event.repo.name} - </p>
+                      <p class="event-msg"> ${event.payload.description}</p>
+                    </div>
+                </li>`;
       }
     });
 
@@ -81,17 +91,13 @@ const screen = {
             <h2>Eventos</h2>
             <ul class="list">${eventsItems}</ul>
         </div>`;
-    }
-
-    if (event.event.length === 0) {
+    } else if (event.event.length === 0) {
       this.userProfile.innerHTML += `
         <div class="events-items">
             <h2>Eventos</h2>
             <p class="others-type">Usuário não possui eventos 👎🏻</p>
         </div>`;
-    }
-
-    if (
+    } else if (
       event.event.type != "CreateEvent" &&
       event.event.type != "PushEvent" &&
       event.event.length < 0

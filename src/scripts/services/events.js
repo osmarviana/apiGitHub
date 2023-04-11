@@ -6,5 +6,5 @@ async function getEvents(userName) {
   );
   return await response.json();
 }
-
+console.log(await getEvents('osmarviana'))
 export { getEvents };

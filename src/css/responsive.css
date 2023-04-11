@@ -20,6 +20,10 @@
   .container header #btn-search {
     width: 100%;
   }
+
+  .event-box {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 425px) {
@@ -35,5 +39,29 @@
   .container .profile-data .info .data {
     width: 100%;
     padding: 0;
+  }
+
+  .container .profile-data .events-items ul {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container .profile-data .info img {
+    width: 80%;
+    align-self: center;
+  }
+
+  .events-items {
+    width: 95%;
+  }
+}
+
+@media (max-width: 320px) {
+  .container .profile-data .repositories ul li a {
+    width: 280px;
+  }
+  .events-items {
+    width: 85%;
   }
 }
