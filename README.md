@@ -32,7 +32,7 @@ Implementar novas solicitações ao projeto com uso da API do GitHub, quais:
 
 # 🔗 Links
 
-- Clique no link para acessar a página: https://osmarviana.github.io/projeto-inicial-fetch-github-api/
+- Clique no link para acessar a página: https://osmarviana.github.io/apiGitHub
 
 # 🧐 Autor
 
